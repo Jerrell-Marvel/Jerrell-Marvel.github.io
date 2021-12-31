@@ -341,8 +341,10 @@ html {
 }
 
 .about {
-  width: 100%;
-  height: 200vh;
+  // width: 100%;
+  // height: 200vh;
+  height: 170vh;
+  width: 100vw;
   background-color: black;
   position: relative;
   .about__gradient {
@@ -468,12 +470,11 @@ html {
     }
     .about__text--container-two {
       width: 100%;
-      height: 90%;
+      height: 100%;
       background-color: transparent;
       position: absolute;
-      top: 20%;
       left: 50%;
-      transform: translate(-50%, -20%);
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -491,12 +492,12 @@ html {
           transform: translateX(-100%);
         }
         &:nth-child(1) {
-          font-size: 3vw;
+          font-size: 2vw;
           margin-left: 10%;
           font-family: "Oswald";
         }
         &:nth-child(2) {
-          font-size: 3vw;
+          font-size: 2vw;
           margin-left: 20%;
           font-family: "Oswald";
         }
@@ -505,7 +506,7 @@ html {
           margin-left: 20%;
         }
         &:nth-child(4) {
-          font-size: 3vw;
+          font-size: 2vw;
           margin-left: 25%;
           font-family: "Oswald";
         }
@@ -514,7 +515,7 @@ html {
           margin-left: 30%;
         }
         &:nth-child(6) {
-          font-size: 3vw;
+          font-size: 2vw;
           margin-left: 40%;
           font-family: "Oswald";
         }
