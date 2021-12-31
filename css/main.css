@@ -620,7 +620,7 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 10px;
+  gap: 2px;
 }
 
 .about__container .about__container--two .about__text--container-two .about__box--reveal {
