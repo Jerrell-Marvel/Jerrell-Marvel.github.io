@@ -424,7 +424,7 @@ html {
 }
 
 .about {
-  height: 170vh;
+  height: 100vmax;
   width: 100vw;
   background-color: black;
   position: relative;
@@ -1596,7 +1596,7 @@ footer .footer__line {
     height: 70%;
   }
   .about {
-    height: 120vh;
+    height: 100vmax;
   }
   .about .about__gradient {
     height: 45px;
@@ -1609,7 +1609,7 @@ footer .footer__line {
     font-size: 1.8em;
   }
   .about__container .about__container--one .about__container--one-text h3 {
-    font-size: 3.5em;
+    font-size: 3em;
   }
   .about__container .about__text h2 {
     -webkit-transform: rotate(-90deg);

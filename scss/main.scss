@@ -341,9 +341,7 @@ html {
 }
 
 .about {
-  // width: 100%;
-  // height: 200vh;
-  height: 170vh;
+  height: 100vmax;
   width: 100vw;
   background-color: black;
   position: relative;
@@ -1184,7 +1182,7 @@ footer {
     }
   }
   .about {
-    height: 120vh;
+    height: 100vmax;
     .about__gradient {
       height: 45px;
     }
@@ -1197,7 +1195,7 @@ footer {
           font-size: 1.8em;
         }
         h3 {
-          font-size: 3.5em;
+          font-size: 3em;
         }
       }
     }
