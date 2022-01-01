@@ -85,7 +85,7 @@ const aboutObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.3,
+    threshold: 0.2,
     rootmargin: 0,
   }
 );
