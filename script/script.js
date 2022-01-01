@@ -53,27 +53,13 @@ main.addEventListener("mousemove", function (e) {
   });
 });
 
-// Progress bar and parallax image
+// Progress bar
 const mainHeader = document.querySelector(".main__header");
 const progressBar = document.querySelector(".progress-bar");
-const aboutImage = document.querySelector(".about__container--one img");
-const aboutSection = document.querySelector(".about");
 window.addEventListener("scroll", function () {
   let documentHeight = document.documentElement.scrollHeight - mainHeader.offsetHeight;
   let scrollY = window.scrollY;
   progressBar.style.height = `${(scrollY / documentHeight) * 100}vh`;
-  const windowTop = window.pageYOffset;
-  if (windowTop >= mainHeader.offsetHeight / 2 && windowTop <= mainHeader.offsetHeight + aboutContainerOne.offsetHeight / 2) {
-    let scaleSize = 1 - windowTop / 6000;
-    aboutImage.style.transform = `scale(${scaleSize})`;
-  } else if (windowTop >= mainHeader.offsetHeight && windowTop <= mainHeader.offsetHeight + aboutSection.offsetHeight) {
-    const aboutTwoImg1 = document.querySelector(".about__container--two img:nth-child(1)");
-    const aboutTwoImg2 = document.querySelector(".about__container--two img:nth-child(2)");
-    let translatePercent = windowTop / 15;
-
-    aboutTwoImg1.style.transform = `translateY(${translatePercent}%)`;
-    aboutTwoImg2.style.transform = `translateY(-${translatePercent}%)`;
-  }
 });
 
 // about observer
@@ -86,10 +72,12 @@ const aboutObserver = new IntersectionObserver(
   (entries, aboutObserver) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        window.addEventListener("scroll", aboutOneParallax);
         aboutContainerOne.style.opacity = "1";
         aboutContainerOneP.style.transform = "translateX(0)";
         aboutContainerOneH3.style.transform = "translateX(0)";
       } else {
+        window.removeEventListener("scroll", aboutOneParallax);
         aboutContainerOne.style.opacity = "0";
         aboutContainerOneP.style.transform = "translateX(-100%)";
         aboutContainerOneH3.style.transform = "translateX(-100%)";
@@ -102,6 +90,12 @@ const aboutObserver = new IntersectionObserver(
   }
 );
 
+function aboutOneParallax() {
+  const aboutImage = document.querySelector(".about__container--one img");
+  let scaleSize = 1 - window.scrollY / 7000;
+  aboutImage.style.transform = `scale(${scaleSize})`;
+}
+
 aboutObserver.observe(aboutContainer);
 
 // about 2 observer
@@ -112,6 +106,7 @@ const aboutObserver2 = new IntersectionObserver(
   (entries, aboutObserver2) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        window.addEventListener("scroll", aboutTwoParallax);
         aboutTwoText.forEach((text, index) => {
           setTimeout(() => {
             text.style.transform = "translateX(0%)";
@@ -119,6 +114,7 @@ const aboutObserver2 = new IntersectionObserver(
           }, 100 * index);
         });
       } else {
+        window.removeEventListener("scroll", aboutTwoParallax);
         aboutTwoText.forEach((text) => {
           text.style.transform = "translateX(-100%)";
           text.style.opacity = "0";
@@ -132,15 +128,20 @@ const aboutObserver2 = new IntersectionObserver(
   }
 );
 
+function aboutTwoParallax() {
+  const aboutTwoImg1 = document.querySelector(".about__container--two img:nth-child(1)");
+  const aboutTwoImg2 = document.querySelector(".about__container--two img:nth-child(2)");
+  let translatePercent = window.scrollY / 15;
+  aboutTwoImg1.style.transform = `translateY(${translatePercent}%)`;
+  aboutTwoImg2.style.transform = `translateY(-${translatePercent}%)`;
+}
 aboutObserver2.observe(aboutContainerTwo);
 
 // Skilss observer
-
 const mediaQueryList = window.matchMedia("(max-width: 768px)");
 
 function handleOrientationChange(evt) {
   if (evt.matches) {
-    /* The viewport is currently in portrait orientation */
     const skillsBox = document.querySelectorAll(".skills__box");
 
     const skillsBoxObserver = new IntersectionObserver(
@@ -195,9 +196,7 @@ function handleOrientationChange(evt) {
     skillsObserver.observe(skills);
   }
 }
-// Run the orientation change handler once.
 handleOrientationChange(mediaQueryList);
-// Add the callback function as a listener to the query list.
 mediaQueryList.addEventListener("change", handleOrientationChange);
 
 // Projects Obsever
@@ -223,7 +222,6 @@ const projectsObserver = new IntersectionObserver(
 projectsObserver.observe(projectsContent);
 
 // Show projects when clicked
-
 function showProject(projectNum, whiteLine, blueLine, projectText, closeBtn, projectImg) {
   projectNum.style.transform = "translateX(0)";
   whiteLine.style.width = "70%";
@@ -327,12 +325,6 @@ const footerContactObserver = new IntersectionObserver(
 
 footerContactObserver.observe(footerContact);
 
-// Ligh mode
-// const bgTheme = document.querySelectorAll("[data-bgtheme]");
-// bgTheme.forEach((bg) => {
-//   bg.style.backgroundColor = "white";
-// });
-
 const themeToggleBtn = document.querySelector(".theme__toggle");
 
 themeToggleBtn.addEventListener("click", function () {
@@ -345,15 +337,6 @@ themeToggleBtn.addEventListener("click", function () {
   closeBtn.forEach((btn) => {
     btn.classList.toggle("close__btn--light");
   });
-  // function switchTheme(target, dataAttribute) {
-  //   target.forEach((el) => {
-  //     if (`el.dataset.${dataAttribute} === "dark"`) {
-  //       el.setAttribute(`data-${dataAttribute}`, "light");
-  //     } else if (`el.dataset.${dataAttribute} === "light"`) {
-  //       el.setAttribute(`data-${dataAttribute}`, "dark");
-  //     }
-  //   });
-  // }
   const bgTheme = document.querySelectorAll("[data-bgtheme]");
   bgTheme.forEach((el) => {
     if (el.dataset.bgtheme === "dark") {
