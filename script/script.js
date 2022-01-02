@@ -76,6 +76,7 @@ const aboutObserver = new IntersectionObserver(
         aboutContainerOne.style.opacity = "1";
         aboutContainerOneP.style.transform = "translateX(0)";
         aboutContainerOneH3.style.transform = "translateX(0)";
+        aboutObserver.unobserve(aboutContainer);
       } else {
         window.removeEventListener("scroll", aboutOneParallax);
         aboutContainerOne.style.opacity = "0";
@@ -92,7 +93,7 @@ const aboutObserver = new IntersectionObserver(
 
 function aboutOneParallax() {
   const aboutImage = document.querySelector(".about__container--one img");
-  let scaleSize = 1 - window.scrollY / 7000;
+  let scaleSize = 1 - window.scrollY / 5000;
   aboutImage.style.transform = `scale(${scaleSize})`;
 }
 
