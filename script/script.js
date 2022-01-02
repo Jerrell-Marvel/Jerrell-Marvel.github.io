@@ -360,10 +360,8 @@ themeToggleBtn.addEventListener("click", function () {
   function switchTheme(data, dataType, element) {
     if (data === "dark") {
       element.setAttribute(`data-${dataType}`, "light");
-      console.log("dark");
     } else {
       element.setAttribute(`data-${dataType}`, "dark");
-      console.log("light");
     }
   }
 });
