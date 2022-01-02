@@ -327,7 +327,6 @@ const footerContactObserver = new IntersectionObserver(
 footerContactObserver.observe(footerContact);
 
 const themeToggleBtn = document.querySelector(".theme__toggle");
-
 themeToggleBtn.addEventListener("click", function () {
   const ballIcon = document.querySelector(".ball__icon");
   ballIcon.classList.toggle("ball__icon--active");
@@ -340,39 +339,33 @@ themeToggleBtn.addEventListener("click", function () {
   });
   const bgTheme = document.querySelectorAll("[data-bgtheme]");
   bgTheme.forEach((el) => {
-    if (el.dataset.bgtheme === "dark") {
-      el.setAttribute("data-bgtheme", "light");
-    } else if (el.dataset.bgtheme === "light") {
-      el.setAttribute("data-bgtheme", "dark");
-    }
+    switchTheme(el.dataset.bgtheme, "bgtheme", el);
   });
 
   const txtTheme = document.querySelectorAll("[data-txttheme]");
   txtTheme.forEach((el) => {
-    if (el.dataset.txttheme === "dark") {
-      el.setAttribute("data-txttheme", "light");
-    } else if (el.dataset.txttheme === "light") {
-      el.setAttribute("data-txttheme", "dark");
-    }
+    switchTheme(el.dataset.txttheme, "txttheme", el);
   });
 
   const gradientTheme = document.querySelectorAll("[data-gradient]");
   gradientTheme.forEach((el) => {
-    if (el.dataset.gradient === "dark") {
-      el.setAttribute("data-gradient", "light");
-    } else if (el.dataset.gradient === "light") {
-      el.setAttribute("data-gradient", "dark");
-    }
+    switchTheme(el.dataset.gradient, "gradient", el);
   });
 
   const borderTheme = document.querySelectorAll("[data-border]");
   borderTheme.forEach((el) => {
-    if (el.dataset.border === "dark") {
-      el.setAttribute("data-border", "light");
-    } else if (el.dataset.border === "light") {
-      el.setAttribute("data-border", "dark");
-    }
+    switchTheme(el.dataset.border, "border", el);
   });
+
+  function switchTheme(data, dataType, element) {
+    if (data === "dark") {
+      element.setAttribute(`data-${dataType}`, "light");
+      console.log("dark");
+    } else {
+      element.setAttribute(`data-${dataType}`, "dark");
+      console.log("light");
+    }
+  }
 });
 
 console.log("%cBest view in 1280 x 800 device 😄", "border: 0.2px solid blue");
