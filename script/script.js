@@ -76,7 +76,6 @@ const aboutObserver = new IntersectionObserver(
         aboutContainerOne.style.opacity = "1";
         aboutContainerOneP.style.transform = "translateX(0)";
         aboutContainerOneH3.style.transform = "translateX(0)";
-        aboutObserver.unobserve(aboutContainer);
       } else {
         window.removeEventListener("scroll", aboutOneParallax);
         aboutContainerOne.style.opacity = "0";
@@ -357,8 +356,8 @@ themeToggleBtn.addEventListener("click", function () {
     switchTheme(el.dataset.border, "border", el);
   });
 
-  function switchTheme(data, dataType, element) {
-    if (data === "dark") {
+  function switchTheme(dataValue, dataType, element) {
+    if (dataValue === "dark") {
       element.setAttribute(`data-${dataType}`, "light");
     } else {
       element.setAttribute(`data-${dataType}`, "dark");
