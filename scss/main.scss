@@ -601,8 +601,8 @@ html {
         background: linear-gradient(to right, transparent 0%, #000875 45%, #000875 55%, transparent 100%);
       }
       .skills__box {
-        width: 15vw;
-        height: 15vw;
+        width: 15vmax;
+        height: 15vmax;
         display: flex;
         flex-direction: column;
         justify-content: center;

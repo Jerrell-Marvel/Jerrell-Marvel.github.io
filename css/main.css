@@ -787,8 +787,8 @@ html {
 }
 
 .skills .skills__container .skills__content .skills__box {
-  width: 15vw;
-  height: 15vw;
+  width: 15vmax;
+  height: 15vmax;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
