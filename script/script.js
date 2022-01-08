@@ -17,6 +17,7 @@ document.addEventListener("mousemove", (e) => {
 
 // Window on load animation
 window.addEventListener("load", function () {
+  const themeToggleBtn = document.querySelector(".theme__toggle");
   themeToggleBtn.style.opacity = "0.7";
   onLoadAnimation.classList.add("main__onload--animation-active");
   let headerH1Arr = headerH1.map((e) => `<span class="h1" data-txttheme="dark">${e}</span>`).join("");
@@ -201,25 +202,27 @@ mediaQueryList.addEventListener("change", handleOrientationChange);
 
 // Projects Obsever
 const projects = document.querySelector(".projects");
-const projectsContent = document.querySelector(".projects__content");
+const projectsContent = document.querySelectorAll(".projects__content");
 
 const projectsObserver = new IntersectionObserver(
-  (entries, projectsObserver) => {
+  (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        projectsContent.style.opacity = "1";
+        entry.target.style.opacity = "1";
       } else {
-        projectsContent.style.opacity = "0";
+        entry.target.style.opacity = "0";
       }
     });
   },
   {
-    threshold: 0.2,
+    threshold: 0,
     rootmargin: 0,
   }
 );
 
-projectsObserver.observe(projectsContent);
+projectsContent.forEach((project) => {
+  projectsObserver.observe(project);
+});
 
 // Show projects when clicked
 function showProject(projectNum, whiteLine, blueLine, projectText, closeBtn, projectImg) {
@@ -272,6 +275,18 @@ const closeButton2 = document.querySelector(".projects2__closebtn");
 
 projectTwoContent.addEventListener("click", function () {
   showProject(projectTwo, projectTwoWhite, projectTwoBlue, projectTwoText, closeButton2, projectTwoImage);
+});
+
+const projectThreeContent = document.querySelector(".projects__content--three");
+const projectThree = document.querySelector(".projects3");
+const projectThreeWhite = document.querySelector(".project3__line--white");
+const projectThreeBlue = document.querySelector(".project3__line--blue");
+const projectThreeText = document.querySelectorAll(".project3__text--box > *");
+const projectThreeImage = document.querySelectorAll(".project__image--box--3 > *");
+const closeButton3 = document.querySelector(".projects3__closebtn");
+
+projectThreeContent.addEventListener("click", function () {
+  showProject(projectThree, projectThreeWhite, projectThreeBlue, projectThreeText, closeButton3, projectThreeImage);
 });
 
 // Footer observer
