@@ -125,7 +125,8 @@ table {
   border-spacing: 0;
 }
 
-Remove browser scrollbar ::-webkit-scrollbar {
+// Remove browser scrollbar
+::-webkit-scrollbar {
   display: none;
 }
 // Variables
@@ -821,8 +822,9 @@ html {
     display: flex;
     flex-direction: column;
     font-family: "Bebas Neue", cursive;
+    justify-content: center;
     color: white;
-    gap: 1em;
+    gap: 10px;
     .project__text--box {
       overflow: hidden;
       padding: 5px;
@@ -1126,12 +1128,10 @@ footer {
     }
   }
 
-  .project__image--box--1 {
-    width: 100% !important;
-    height: 40vw !important;
+  .project {
+    padding: 25px;
   }
-
-  .project__image--box--2 {
+  .project__image--box {
     width: 100% !important;
     height: 40vw !important;
   }

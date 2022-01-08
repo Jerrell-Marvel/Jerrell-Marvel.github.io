@@ -131,7 +131,7 @@ table {
   border-spacing: 0;
 }
 
-Remove browser scrollbar ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
 }
 
@@ -1112,8 +1112,11 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   font-family: "Bebas Neue", cursive;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: white;
-  gap: 1em;
+  gap: 10px;
 }
 
 .project .project__text .project__text--box {
@@ -1461,11 +1464,10 @@ footer .footer__line {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
   }
-  .project__image--box--1 {
-    width: 100% !important;
-    height: 40vw !important;
+  .project {
+    padding: 25px;
   }
-  .project__image--box--2 {
+  .project__image--box {
     width: 100% !important;
     height: 40vw !important;
   }
