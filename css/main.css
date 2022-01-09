@@ -1020,8 +1020,8 @@ html {
 
 .project__active {
   opacity: 1 !important;
-  -webkit-transform: translateY(0) !important;
-          transform: translateY(0) !important;
+  -webkit-transform: translateX(0) !important;
+          transform: translateX(0) !important;
 }
 
 .close__btn--light {
@@ -1069,8 +1069,8 @@ html {
   width: 30px;
   height: 30px;
   position: absolute;
-  right: 4%;
-  top: 4%;
+  right: 3%;
+  top: 3%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: pointer;
@@ -1127,10 +1127,10 @@ html {
 
 .project .project__text .project__text--box > * {
   opacity: 0;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  -webkit-transition: 1.5s;
-  transition: 1.5s;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .project .project__text h4 {
@@ -1171,18 +1171,16 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 0.5em;
+  gap: 1em;
 }
 
 .project .project__images .project__image--box {
-  width: 45%;
-  height: 20vw;
+  width: calc(50% - 0.5em);
   overflow: hidden;
 }
 
 .project .project__images .project__image--box img {
   width: 100%;
-  height: 100%;
   display: block;
   opacity: 0;
   -webkit-transform: translateY(100%);
@@ -1468,6 +1466,12 @@ footer .footer__line {
   }
   .project {
     padding: 25px;
+  }
+  .project .project__text .project__text--box h4 {
+    font-size: 1.35rem;
+  }
+  .project .project__text .project__text--box p {
+    font-size: 0.85rem;
   }
   .project__image--box {
     width: 100% !important;

@@ -227,15 +227,22 @@ projectsContent.forEach((project) => {
 // Show projects when clicked
 function showProject(projectNum, whiteLine, blueLine, projectText, closeBtn, projectImg) {
   projectNum.style.transform = "translateX(0)";
-  whiteLine.style.width = "70%";
-  blueLine.style.opacity = "1";
 
-  projectText.forEach((text) => {
-    text.classList.add("project__active");
+  setTimeout(() => {
+    whiteLine.style.width = "70%";
+    blueLine.style.opacity = "1";
+  }, 500);
+
+  projectText.forEach((text, index) => {
+    setTimeout(() => {
+      text.classList.add("project__active");
+    }, 200 * index);
   });
 
-  projectImg.forEach((image) => {
-    image.classList.add("project__active");
+  projectImg.forEach((image, index) => {
+    setTimeout(() => {
+      image.classList.add("project__active");
+    }, 200 * index);
   });
 
   closeBtn.addEventListener("click", function () {
