@@ -714,7 +714,7 @@ html {
 
 .skills .skills__container .skills__text {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   background: url(../Image/text_bg-3.jpg);
   background-size: cover;
   display: -webkit-box;
@@ -924,7 +924,6 @@ html {
 
 .projects .projects__container .projects__content--wrapper {
   width: 100%;
-  padding: 1em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
@@ -1458,7 +1457,10 @@ footer .footer__line {
         grid-template-columns: 10% 1fr;
   }
   .projects .projects__container .projects__content--wrapper {
-    padding: 90px 0;
+    padding: 0;
+  }
+  .projects .projects__container .projects__content--wrapper .projects__content {
+    gap: 10px !important;
   }
   .projects .projects__container .projects__text h2 {
     -webkit-transform: rotate(-90deg);
